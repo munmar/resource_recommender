@@ -47,3 +47,6 @@ def get_top_n_recommendations(user_input, similarity_scores, n=5):
   pass
 
 # print(os.path.join(LOCAL_DATA_PATH, 'jobs_data.csv'))
+
+if __name__ == '__main__':
+  train_recommendation_model()

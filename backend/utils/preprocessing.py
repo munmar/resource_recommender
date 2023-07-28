@@ -34,9 +34,3 @@ def preprocess_text(text):
   processed_text = ' '.join(words)
   
   return processed_text
-
-
-def apply_preproc(data, column_to_proc='description', preproc_column='processed_description'):
-  # apply the preprocessing to the data
-  data[preproc_column] = data[column_to_proc].apply(preprocess_text)
-  return
