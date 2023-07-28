@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommended Courses</title>
+</head>
+<body>
+    <h1>Recommended Courses</h1>
+    <ul>
+        {% for course in recommendations %}
+            <li>
+                <h3>{{ course.course_title }}</h3>
+                <p>{{ course.course_description }}</p>
+                <a href="{{ course.course_url }}">View Course</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
