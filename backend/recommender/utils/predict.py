@@ -1,13 +1,21 @@
 import pandas as pd
+import os
 import joblib
 from .preprocessing import *
-from .recommendation import train_recommendation_model, get_top_n_recommendations
-from data import get_local_data
+# from .recommendation import train_recommendation_model, get_top_n_recommendations
+from .data import get_local_data
+from django.conf import settings
 
 def recommend(new_user_input):
-  loaded_tfidf_vectorizer = joblib.load('models/tfidf_vectorizer.joblib')
-  loaded_tfidf_matrix = joblib.load('models/tfidf_matrix.joblib')
-  processed_resources_data = get_local_data('../data/processed_resources_data')
+  base_dir = settings.BASE_DIR
+
+  tfidf_vectorizer_path = os.path.join(base_dir, 'recommender', 'utils', 'models', 'tfidf_vectorizer.joblib')
+  tfidf_matrix_path = os.path.join(base_dir, 'recommender', 'utils', 'models', 'tfidf_matrix.joblib')
+  processed_resources_data = get_local_data('processed_resources_data.csv')
+
+
+  loaded_tfidf_vectorizer = joblib.load(tfidf_vectorizer_path)
+  loaded_tfidf_matrix = joblib.load(tfidf_matrix_path)
 
   # new_user_input = "I want to become a data scientist"
   preprocessed_input = preprocess_text(new_user_input)

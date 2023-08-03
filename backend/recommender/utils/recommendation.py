@@ -2,10 +2,9 @@ import pandas as pd
 import os
 import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
-from params import LOCAL_DATA_PATH
-from data import get_local_data
-from extract import *
-from preprocessing import *
+from .data import get_local_data
+from .extract import *
+from .preprocessing import *
 
 def train_recommendation_model():
   # Load job data and course data
@@ -13,11 +12,11 @@ def train_recommendation_model():
   resources_data = get_local_data('resources_data.csv')
 
   # preprocessing the raw data
-  job_data['preprocessed_description'] = job_data['description'].apply(preprocess_text)
+  job_data['processed_description'] = job_data['description'].apply(preprocess_text)
   resources_data['processed_description'] = resources_data['description'].apply(preprocess_text)
   
   # skill extraction
-  job_data_filtered = job_data[job_data['preprocessed_description'].apply(contains_skill)]
+  job_data_filtered = job_data[job_data['processed_description'].apply(contains_skill)]
 
   job_data_filtered['skills'] = job_data_filtered['processed_description'].apply(extract_technical_skills)
 
@@ -40,7 +39,8 @@ def train_recommendation_model():
   joblib.dump(similarity_scores, 'models/similarity_scores.joblib')
   joblib.dump(tfidf_vectorizer, 'models/tfidf_vectorizer.joblib')
   joblib.dump(tfidf_matrix, 'models/tfidf_matrix.joblib')
-  resources_data.to_csv('../data/processed_resources_data')
+  resources_data.to_csv('../../data/processed_resources_data.csv')
+  job_data_filtered.to_csv('../../data/processed_jobs_data.csv')
 
 def get_top_n_recommendations(user_input, similarity_scores, n=5):
     
