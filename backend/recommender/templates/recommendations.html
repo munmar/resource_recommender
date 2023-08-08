@@ -1,25 +1,85 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Career Recommendation System - Results</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Slider in HTML & CSS</title>
+    <link rel="stylesheet" href="{% static 'css/recommendations.css' %}">
 </head>
 <body>
-    <h1>Recommendation Results</h1>
-    {% if recommendations %}
-        <table>
-            <tr>
-                <th>Course Title</th>
-                <th>URL</th>
-            </tr>
+    <!-- Free Recommendations -->
+    <div class="carousel-section">
+        <h2 class="classification">Free Recommendations</h2>
+        <div class="container">
+            <!-- Card generator -->
             {% for recommendation in recommendations %}
-                <tr>
-                    <td>{{ recommendation.title }}</td>
-                    <td><a href="{{ recommendation.URL }}">{{ recommendation.URL }}</a></td>
-                </tr>
+            {% if recommendation.class == 'free' %}
+            <a class="card" href="{{ recommendation.URL }}">
+                <div class="image">
+                    <img src="{{ recommendation.image }}" alt="" />
+                </div>
+                <h2>{{ recommendation.title }}</h2>
+                <p>{{ recommendation.provider }}</p>
+            </a>
+            {% endif %}
             {% endfor %}
-        </table>
-    {% else %}
-        <p>No recommendations found.</p>
-    {% endif %}
+        </div>
+    </div>
+    <!-- Paid Recommendations -->
+    <div class="carousel-section">
+        <h2 class="classification">Paid Recommendations</h2>
+        <div class="container">
+            <!-- Card generator -->
+            {% for recommendation in recommendations %}
+            {% if recommendation.class == 'paid' %}
+            <a class="card" href="{{ recommendation.URL }}">
+                <div class="image">
+                    <img src="{{ recommendation.image }}" alt="" />
+                </div>
+                <h2>{{ recommendation.title }}</h2>
+                <p>{{ recommendation.provider }}</p>
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <!-- University Recommendations -->
+    <div class="carousel-section">
+        <h2 class="classification">University Recommendations</h2>
+        <div class="container">
+            <!-- Card generator -->
+            {% for recommendation in recommendations %}
+            {% if recommendation.class == 'university' %}
+            <a class="card" href="{{ recommendation.URL }}">
+                <div class="image">
+                    <img src="{{ recommendation.image }}" alt="" />
+                </div>
+                <h2>{{ recommendation.title }}</h2>
+                <p>{{ recommendation.provider }}</p>
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Bootcamp Recommendations -->
+    <div class="carousel-section">
+        <h2 class="classification">Bootcamp Recommendations</h2>
+        <div class="container">
+            <!-- Card generator -->
+            {% for recommendation in recommendations %}
+            {% if recommendation.class == 'bootcamp' %}
+            <a class="card" href="{{ recommendation.URL }}">
+                <div class="image">
+                    <img src="{{ recommendation.image }}" alt="" />
+                </div>
+                <h2>{{ recommendation.title }}</h2>
+                <p>{{ recommendation.provider }}</p>
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>
