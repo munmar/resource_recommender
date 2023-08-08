@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .utils.predict import recommend
 
-# def recommend_courses(request):
-#     return render(request, 'index.html')
+def index(request):
+    return render(request, 'index.html')
 
 def recommendation_view(request):
     if request.method == 'POST':
@@ -18,4 +18,4 @@ def recommendation_view(request):
         context = {'recommendations': recommendations_list}
         return render(request, 'recommendations.html', context)
 
-    return render(request, 'recommendations.html')
+    return HttpResponse("Method not allowed")
