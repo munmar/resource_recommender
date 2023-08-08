@@ -3,6 +3,6 @@ from . import views
 
 # URLConf
 urlpatterns = [
-  # path('', views.recommend_courses),
-  path('recommendation/', views.recommendation_view)
+  path('', views.index, name='app-index'),
+  path('recommendation/', views.recommendation_view, name='app-recommendations')
 ]
