@@ -33,7 +33,7 @@ body {
   align-items: center;
 }
 
-input[type="text"] {
+/* input[type="text"] {
   padding: 10px 15px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -50,7 +50,7 @@ input[type="text"] {
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   transition: background-color 0.2s;
-}
+} */
 
 #submit-button:hover {
   background-color: #0056b3;
@@ -60,4 +60,8 @@ input[type="text"] {
   .container {
       padding: 15px;
   }
+}
+
+.ui.input {
+  width: 100%;
 }
