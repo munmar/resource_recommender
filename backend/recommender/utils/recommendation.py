@@ -20,10 +20,10 @@ def train_recommendation_model():
 
   job_data_filtered['skills'] = job_data_filtered['processed_description'].apply(extract_technical_skills)
 
-  # Create a TF-IDF vectorizer
+  # initialise a TF-IDF vectorizer
   tfidf_vectorizer = TfidfVectorizer()
 
-  # Fit and transform the course descriptions using the TF-IDF vectorizer
+  # fit transform the course descriptions with the TF-IDF vectorizer
   tfidf_matrix = tfidf_vectorizer.fit_transform(resources_data['processed_description'])
 
   # Convert the skills from job_data into a space-separated string for matching
@@ -42,9 +42,6 @@ def train_recommendation_model():
   resources_data.to_csv('../../data/processed_resources_data.csv')
   job_data_filtered.to_csv('../../data/processed_jobs_data.csv')
 
-def get_top_n_recommendations(user_input, similarity_scores, n=5):
-    
-  pass
 
 # print(os.path.join(LOCAL_DATA_PATH, 'jobs_data.csv'))
 

@@ -2,7 +2,6 @@ import pandas as pd
 import os
 import joblib
 from .preprocessing import *
-# from .recommendation import train_recommendation_model, get_top_n_recommendations
 from .data import get_local_data
 from django.conf import settings
 
