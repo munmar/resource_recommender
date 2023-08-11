@@ -16,6 +16,12 @@ def recommendation_view(request):
 
         # Pass the recommendations as a context variable to the template
         context = {'recommendations': recommendations_list}
+        request.session['recommendations'] = recommendations_list
         return render(request, 'recommendations.html', context)
-
+    elif request.method == 'GET':
+        if 'recommendations' in request.session:
+            recommendations_list = request.session.pop('recommendations')
+            context = {'recommendations': recommendations_list}
+            return render(request, 'recommendations.html', context)
+    
     return HttpResponse("Method not allowed")
