@@ -1,0 +1,7 @@
+pandas
+scikit-learn
+joblib
+python-decouple
+nltk
+django
+termcolor
