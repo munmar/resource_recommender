@@ -52,6 +52,19 @@ body {
   transition: background-color 0.2s;
 } */
 
+/* Custom CSS for Semantic UI button */
+.ui.button.custom {
+  background-color: #6e93f7 !important;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.ui.button.custom:hover {
+  background-color: #4070f4 !important;
+  color: white;
+}
+
+
 #submit-button:hover {
   background-color: #0056b3;
 }

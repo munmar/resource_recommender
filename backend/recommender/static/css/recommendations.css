@@ -61,14 +61,27 @@ body a{
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* Configure icon CSS to suit custom CSS and Semantic UI requirements */
+i.icon {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 !important;
+}
+
 .card .image {
   height: 150px;
   width: 150px;
   padding: 4px;
   background: #4070f4;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: #fff;
 }
-.image img {
+.image i.icon {
   height: 100%;
   width: 100%;
   object-fit: cover;
