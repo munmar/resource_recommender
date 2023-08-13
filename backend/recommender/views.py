@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .utils.predict import recommend, recommend_by_class, recommend_by_class_more
+import sys
 
 def index(request):
     return render(request, 'index.html')
@@ -9,7 +10,13 @@ def recommendation_view(request):
     if request.method == 'POST':
         user_input = request.POST.get('user_input', '')
         # Process the user input using the recommendation model
-        recommendations = recommend_by_class_more(user_input)
+        try:
+            recommendations = recommend_by_class_more(user_input)
+        except Exception as e:
+            print(str(e))
+            sys.stdout.flush()
+            return render(request, 'recommendations.html', {'data': 'value1'})
+
 
         # Convert the DataFrame into a list of dictionaries
         recommendations_list = recommendations.to_dict(orient='records')
