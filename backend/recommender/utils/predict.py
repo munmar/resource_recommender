@@ -4,6 +4,7 @@ import joblib
 from .preprocessing import *
 from .data import get_local_data
 from django.conf import settings
+import sys
 
 def recommend(new_user_input):
   base_dir = settings.BASE_DIR
@@ -130,7 +131,10 @@ def recommend_by_class_more(new_user_input, top_n_per_class=3):
     # Reset the index of the final recommendations DataFrame
     final_recommendations.reset_index(drop=True, inplace=True)
   except Exception as e:
-    print(e)
+    print(str(e))
+    sys.stdout.flush()
+    raise e
+
 
 
   return final_recommendations
