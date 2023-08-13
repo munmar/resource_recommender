@@ -4,8 +4,8 @@ import re
 from nltk.tokenize import word_tokenize
 from nltk import pos_tag
 
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
+# nltk.download('punkt')
+# nltk.download('averaged_perceptron_tagger')
 
 technical_skills = {
   'languages': ['HTML/CSS', 'Python', 'SQL', 'TypeScript', 'Bash/Shell (all shells)', 'Java', 'C#', 'C++', 'C', 'PHP', 'PowerShell', 'Go', 'Rust', 'Kotlin', 'Ruby', 'Lua', 'Dart', 'Assembly', 'Swift', 'R', 'Visual Basic (.Net)', 'MATLAB', 'VBA', 'Groovy', 'Delphi', 'Scala', 'Perl', 'Elixir', 'Objective-C', 'Haskell', 'GDScript', 'Lisp', 'Solidity', 'Clojure', 'Julia', 'Erlang', 'F#', 'Fortran', 'Prolog', 'Zig', 'Ada', 'OCaml', 'Apex', 'Cobol', 'SAS', 'Crystal', 'Nim', 'APL', 'Flow', 'Raku'], 

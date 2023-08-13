@@ -5,11 +5,11 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer, WordNetLemmatizer
 
-# Download the NLTK resources (only needed once)
-nltk.download('omw-1.4')
-nltk.download('punkt')
-nltk.download('stopwords')
-nltk.download('wordnet')
+# # Download the NLTK resources (only needed once)
+# nltk.download('omw-1.4')
+# nltk.download('punkt')
+# nltk.download('stopwords')
+# nltk.download('wordnet')
 
 # Function for text preprocessing with lemmatization
 def preprocess_text(text):
