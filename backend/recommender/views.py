@@ -9,6 +9,7 @@ def index(request):
 def recommendation_view(request):
     if request.method == 'POST':
         user_input = request.POST.get('user_input', '')
+        print(user_input)
         # Process the user input using the recommendation model
         try:
             recommendations = recommend_by_class_more(user_input)
