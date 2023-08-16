@@ -19,6 +19,7 @@ body {
   padding: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+  width: 50%;
 }
 
 .title {
@@ -77,4 +78,24 @@ body {
 
 .ui.input {
   width: 100%;
+}
+
+.ui.orange.message {
+  color: #0056b3 !important; 
+}
+
+.ui.message h4{
+  font-size: 16px !important;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.ui.message p{
+  font-size: 16px !important;
+  text-align: left;
+}
+
+.ui.list {
+  font-size: 14px !important;
+  font-weight: 600;
 }
