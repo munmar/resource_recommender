@@ -16,7 +16,7 @@
         <form class="input-form" method="post" action="{% url 'app-recommendations' %}">
             {% csrf_token %}
             <div class="ui input">
-                <input type="text" name="user_input" placeholder="Enter your career goal or job description">
+                <input type="text" name="user_input" placeholder="Enter a job description or your career goal">
             </div>
             <input class="ui button custom" type="submit" value="Search">
         </form>
