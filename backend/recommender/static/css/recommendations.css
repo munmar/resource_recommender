@@ -128,3 +128,14 @@ h1 {
   min-height: auto !important;
   margin: 20px auto 20px 20px !important;
 }
+
+/* MOBILE VIEW CORRECTIONS */
+@media (max-width: 400px) {
+  .classification {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  .carousel-section {
+    margin-left: auto;
+  }
+}
