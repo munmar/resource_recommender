@@ -17,11 +17,11 @@ def train_recommendation_model():
     Returns:
       None
   '''
-  # Load job data and course data
+  # load job and course data
   job_data = get_local_data('jobs_data.csv')
   resources_data = get_local_data('resources_data.csv')
 
-  # preprocessing the raw data
+  # preprocessing raw data
   job_data['processed_description'] = job_data['description'].apply(preprocess_text)
   resources_data['processed_description'] = resources_data['description'].apply(preprocess_text)
   
@@ -31,16 +31,13 @@ def train_recommendation_model():
 
   tfidf_vectorizer = TfidfVectorizer()
 
-  # fit transform the course descriptions with the TF-IDF vectorizer
+  # fit transform course descriptions with TF-IDF vectorizer
   tfidf_matrix = tfidf_vectorizer.fit_transform(resources_data['processed_description'])
 
-  # Convert the skills from job_data into a space-separated string for matching
   job_data_filtered['skills_str'] = job_data_filtered['skills'].apply(lambda skills: ' '.join(skills))
 
-  # Transform the job skills to TF-IDF matrix
+  # transform job skills to TF-IDF matrix and compute similarity scores
   job_skills_tfidf = tfidf_vectorizer.transform(job_data_filtered['skills_str'])
-
-  # Compute the similarity scores between the job skills and course descriptions
   similarity_scores = job_skills_tfidf.dot(tfidf_matrix.T)
   
   joblib.dump(similarity_scores, 'models/similarity_scores.joblib')
