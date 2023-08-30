@@ -7,6 +7,16 @@ from .extract import *
 from .preprocessing import *
 
 def train_recommendation_model():
+  '''
+    Method to train the recommendation model using TF-IDF and cosine similarity.
+
+    This function loads job and resource data, preprocesses the data, performs skill extraction,
+    and computes similarity scores between job skills and course descriptions.
+    The trained components (similarity scores, TF-IDF vectorizer, and matrix) are saved for future use.
+    
+    Returns:
+      None
+  '''
   # Load job data and course data
   job_data = get_local_data('jobs_data.csv')
   resources_data = get_local_data('resources_data.csv')
@@ -15,12 +25,10 @@ def train_recommendation_model():
   job_data['processed_description'] = job_data['description'].apply(preprocess_text)
   resources_data['processed_description'] = resources_data['description'].apply(preprocess_text)
   
-  # skill extraction
+  # skill extraction and data filtering (only include descriptions containing specified skills)
   job_data_filtered = job_data[job_data['processed_description'].apply(contains_skill)]
-
   job_data_filtered['skills'] = job_data_filtered['processed_description'].apply(extract_technical_skills)
 
-  # initialise a TF-IDF vectorizer
   tfidf_vectorizer = TfidfVectorizer()
 
   # fit transform the course descriptions with the TF-IDF vectorizer
@@ -29,11 +37,10 @@ def train_recommendation_model():
   # Convert the skills from job_data into a space-separated string for matching
   job_data_filtered['skills_str'] = job_data_filtered['skills'].apply(lambda skills: ' '.join(skills))
 
-  # Transform the job skills into a TF-IDF matrix
+  # Transform the job skills to TF-IDF matrix
   job_skills_tfidf = tfidf_vectorizer.transform(job_data_filtered['skills_str'])
 
   # Compute the similarity scores between the job skills and course descriptions
-  # The dot product between job_skills_tfidf and tfidf_matrix gives the similarity scores
   similarity_scores = job_skills_tfidf.dot(tfidf_matrix.T)
   
   joblib.dump(similarity_scores, 'models/similarity_scores.joblib')

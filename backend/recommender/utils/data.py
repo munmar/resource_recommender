@@ -7,6 +7,13 @@ from .params import LOCAL_DATA_PATH
 def get_local_data(data_file_name, nrows=None):
   '''
 	Method to get data from the local machine
+
+  Args:
+    data_file_name (str): Name of the data file to load.
+    nrows (int, optional): Number of rows to load from the data file. If set to None, all rows are loaded.
+        
+  Returns:
+    pandas.DataFrame or None: The loaded DataFrame if successful, None if the file is not found.
   '''
   abspath = os.path.join(LOCAL_DATA_PATH, data_file_name)
   try:

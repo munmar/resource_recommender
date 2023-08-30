@@ -19,7 +19,17 @@ technical_skills = {
   'sync tools': ['Slack', 'Zoom', 'Discord', 'Google Meet', 'Whatsapp', 'Telegram', 'Skype', 'Signal', 'Google Chat', 'Cisco Webex Teams', 'Mattermost', 'Jitsi', 'Matrix', 'IRC', 'Rocketchat', 'Zulip', 'Ringcentral', 'Symphony', 'Wire', 'Wickr', 'Unify Circuit', 'Coolfire Core']
 }
 
+# extract key skills from description
 def extract_technical_skills(description):
+  """
+    Extracts technical skills from a given job description using part-of-speech tagging.
+
+    Args:
+      description (str): The job description text.
+
+    Returns:
+      List[str]: A list of technical skills extracted from the description.
+  """
   tokens = word_tokenize(description)
   pos_tags = pos_tag(tokens)
 
@@ -32,9 +42,18 @@ def extract_technical_skills(description):
 
 # Function to check if any skill is present in the description
 def contains_skill(description):
+  """
+    Checks if a given job description contains any of the technical skills.
+
+    Args:
+      description (str): The job description text.
+
+    Returns:
+      bool: True if the description contains any technical skill, False otherwise.
+  """
   for category, skills in technical_skills.items():
     for skill in skills:
-      # Construct a regular expression pattern to match whole words
+      # regex pattern to match whole words
       pattern = r'\b' + re.escape(skill.lower()) + r'\b'
       if re.search(pattern, description.lower()):
         return True
