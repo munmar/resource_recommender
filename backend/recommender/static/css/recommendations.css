@@ -69,7 +69,7 @@ i.icon {
   margin: 0 !important;
 }
 
-.card .image {
+.card .icon-wrapper {
   height: 150px;
   width: 150px;
   padding: 4px;
@@ -81,7 +81,7 @@ i.icon {
   font-size: 3rem;
   color: #fff;
 }
-.image i.icon {
+.icon-wrapper i.icon {
   height: 100%;
   width: 100%;
   object-fit: cover;

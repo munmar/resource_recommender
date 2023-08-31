@@ -24,7 +24,7 @@
             {% for recommendation in recommendations %}
             {% if recommendation.class == 'free' %}
             <a class="card" href="{{ recommendation.URL }}">
-                <div class="image">
+                <div class="icon-wrapper">
                     <i class="gift icon"></i>
                 </div>
                 <h2>{{ recommendation.title }}</h2>
@@ -42,7 +42,7 @@
             {% for recommendation in recommendations %}
             {% if recommendation.class == 'paid' %}
             <a class="card" href="{{ recommendation.URL }}">
-                <div class="image">
+                <div class="icon-wrapper">
                     <i class="dollar sign icon"></i>
                 </div>
                 <h2>{{ recommendation.title }}</h2>
@@ -60,7 +60,7 @@
             {% for recommendation in recommendations %}
             {% if recommendation.class == 'university' %}
             <a class="card" href="{{ recommendation.URL }}">
-                <div class="image">
+                <div class="icon-wrapper">
                     <i class="university icon"></i>
                 </div>
                 <h2>{{ recommendation.title }}</h2>
@@ -78,7 +78,7 @@
             {% for recommendation in recommendations %}
             {% if recommendation.class == 'bootcamp' %}
             <a class="card" href="{{ recommendation.URL }}">
-                <div class="image">
+                <div class="icon-wrapper">
                     <i class="certificate icon"></i>
                 </div>
                 <h2>{{ recommendation.title }}</h2>
