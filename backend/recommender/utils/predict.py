@@ -5,6 +5,7 @@ from .preprocessing import *
 from .data import get_local_data
 from django.conf import settings
 import sys
+from sklearn.metrics.pairwise import cosine_similarity
 
 def recommend_by_class(new_user_input, top_n_per_class=3, top_n_recommendations = 15):
   '''
@@ -39,10 +40,10 @@ def recommend_by_class(new_user_input, top_n_per_class=3, top_n_recommendations 
   new_input_tfidf = loaded_tfidf_vectorizer.transform([preprocessed_input])
 
   # compute the similarity scores between the new input and course descriptions
-  new_input_similarity_scores = new_input_tfidf.dot(loaded_tfidf_matrix.T)
+  new_cosine_similarity_scores = cosine_similarity(new_input_tfidf, loaded_tfidf_matrix)
 
   # get indices of top N most similar courses for new input
-  top_indices = new_input_similarity_scores.toarray().argsort()[0][-top_n_recommendations:][::-1]
+  top_indices = new_cosine_similarity_scores.toarray().argsort()[0][-top_n_recommendations:][::-1]
 
   # get course information for the top N similar courses
   new_input_recommendations = processed_resources_data.iloc[top_indices].copy()

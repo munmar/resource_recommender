@@ -2,6 +2,7 @@ import pandas as pd
 import os
 import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 from .data import get_local_data
 from .extract import *
 from .preprocessing import *
@@ -38,9 +39,9 @@ def train_recommendation_model():
 
   # transform job skills to TF-IDF matrix and compute similarity scores
   job_skills_tfidf = tfidf_vectorizer.transform(job_data_filtered['skills_str'])
-  similarity_scores = job_skills_tfidf.dot(tfidf_matrix.T)
+  cosine_similarity_scores = cosine_similarity(job_skills_tfidf, tfidf_matrix)
   
-  joblib.dump(similarity_scores, 'models/similarity_scores.joblib')
+  joblib.dump(cosine_similarity_scores, 'models/similarity_scores.joblib')
   joblib.dump(tfidf_vectorizer, 'models/tfidf_vectorizer.joblib')
   joblib.dump(tfidf_matrix, 'models/tfidf_matrix.joblib')
   resources_data.to_csv('../../data/processed_resources_data.csv')
