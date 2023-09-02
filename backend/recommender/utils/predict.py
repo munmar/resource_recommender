@@ -43,7 +43,7 @@ def recommend_by_class(new_user_input, top_n_per_class=3, top_n_recommendations 
   new_cosine_similarity_scores = cosine_similarity(new_input_tfidf, loaded_tfidf_matrix)
 
   # get indices of top N most similar courses for new input
-  top_indices = new_cosine_similarity_scores.toarray().argsort()[0][-top_n_recommendations:][::-1]
+  top_indices = new_cosine_similarity_scores.argsort()[0][-top_n_recommendations:][::-1]
 
   # get course information for the top N similar courses
   new_input_recommendations = processed_resources_data.iloc[top_indices].copy()
