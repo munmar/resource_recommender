@@ -1,7 +1,6 @@
 # Learning Resource Recommendation System
-Welcome to the documentation for the Learning Resource Recommendation System, developed for my MSc Computer Science (AI) dissertation project at The University of Nottingham (2022/23).
+Welcome to the Learning Resource Recommendation System, developed for my Master's dissertation project.
 
-Project Owner: Marton Munkacsi
 
 ### Live App URL: 
 https://resource-recommender-e10c7397b0a5.herokuapp.com/
