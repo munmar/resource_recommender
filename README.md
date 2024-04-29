@@ -12,7 +12,7 @@ Welcome to the Learning Resource Recommendation System, developed for my Master'
 ## 🎬 Demo
 <details>
 <summary><h3> 🎥 - Demo Video </h3></summary>
-<video src="https://github.com/munmar/resource_recommender/blob/master/media/project_demo.mp4" controls="controls" style="max-width: 730px;">
+<video src="https://youtu.be/gPo9qK6ijT4" controls="controls" style="max-width: 730px;">
 </video>
 </details>
 
