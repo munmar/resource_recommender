@@ -12,8 +12,8 @@ Welcome to the Learning Resource Recommendation System, developed for my Master'
 ## 🎬 Demo
 <details>
 <summary><h3> 🎥 - Demo Video </h3></summary>
-<video src="[https://youtu.be/gPo9qK6ijT4](https://www.youtube.com/watch?v=gPo9qK6ijT4](https://www.youtube.com/watch?v=gPo9qK6ijT4)" controls="controls" style="max-width: 730px;">
-</video>
+
+[![Demo Video](https://i9.ytimg.com/vi/gPo9qK6ijT4/mqdefault.jpg?sqp=CNSOvLEG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgRSg_MA8=&rs=AOn4CLA2wUJtsptEX463XFz0vvU8j-zHTA)](https://youtu.be/gPo9qK6ijT4)
 </details>
 
 <details>
