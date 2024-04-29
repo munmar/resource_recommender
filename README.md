@@ -9,11 +9,21 @@
 
 Welcome to the Learning Resource Recommendation System, developed for my Master's dissertation project.
 
+## 🎬 Demo
+<details>
+<summary><h3> 🎥 - Demo Video </h3></summary>
+<video src="" controls="controls" style="max-width: 730px;">
+</video>
+</details>
 
-### Live App URL: 
-https://resource-recommender-e10c7397b0a5.herokuapp.com/
+<details>
+<summary><h3> 📸 - Demo Images </h3></summary>
 
+# ![Screenshot 2023-12-28 at 11 45 11](/media/home_page.png)
 
+# ![Screenshot 2023-12-28 at 11 45 11](/media/results_page.png)
+
+</details>
 
 ## Setup Locally
 
